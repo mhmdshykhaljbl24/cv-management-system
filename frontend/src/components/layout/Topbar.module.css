@@ -1,0 +1,31 @@
+.topbar {
+  height: 64px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+}
+
+.email {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: #cbd5e1;
+}

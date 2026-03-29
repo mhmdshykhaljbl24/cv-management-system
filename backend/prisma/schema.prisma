@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+   url      = env("DATABASE_URL")
+}
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String?
+  createdAt DateTime @default(now())
+ role      String @default("user")
+  cvs       CV[]
+}
+
+model CV {
+  createdAt DateTime @default(now())
+updatedAt DateTime @updatedAt
+  id          Int          @id @default(autoincrement())
+  title       String
+  summary     String
+  fullName    String  
+  userId      Int
+  user        User         @relation(fields: [userId], references: [id])
+
+  educations  Education[]
+  experiences Experience[]
+  projects    Project[]
+  skills      Skill[]
+
+}
+model Education {
+  id          Int      @id @default(autoincrement())
+  university  String
+  country     String
+  city        String
+  degree      String
+  major       String
+  gpa         Float?
+  graduationYear Int?
+
+  cvId        Int
+  cv          CV       @relation(fields: [cvId], references: [id], onDelete: Cascade)
+}
+
+model Experience {
+  id          Int      @id @default(autoincrement())
+  company     String
+  country     String
+  city        String
+  position    String
+  startDate   DateTime
+  endDate     DateTime?
+
+  cvId        Int
+  cv          CV       @relation(fields: [cvId], references: [id], onDelete: Cascade)
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  company     String?
+  link        String?
+  name        String
+  role        String?
+  technologies String?
+  description  String?
+
+  cvId        Int
+  cv          CV       @relation(fields: [cvId], references: [id], onDelete: Cascade)
+}
+
+model Skill {
+  id          Int      @id @default(autoincrement())
+  name        String
+  level       Int      // 0 - 100
+
+  cvId        Int
+  cv          CV       @relation(fields: [cvId], references: [id], onDelete: Cascade)
+}

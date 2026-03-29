@@ -1,0 +1,81 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.addBtn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.deleteBtn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #fee2e2;
+  background: #fff;
+  color: #b91c1c;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.15s ease;
+}
+.deleteBtn:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+}
+.editBtn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.15s ease;
+}
+
+.editBtn:hover {
+  background: #f9fafb;
+}

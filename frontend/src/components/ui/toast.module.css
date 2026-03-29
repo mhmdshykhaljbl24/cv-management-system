@@ -1,0 +1,24 @@
+.wrap {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  gap: 10px;
+  z-index: 99999;
+}
+.toast {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.success {
+  background: #16a34a;
+}
+.error {
+  background: #dc2626;
+}
+.info {
+  background: #111827;
+}
